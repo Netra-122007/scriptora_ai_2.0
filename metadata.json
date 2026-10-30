@@ -1,0 +1,6 @@
+{
+  "name": "SCRIPTORA AI",
+  "description": "Futuristic AI Air Writing Recognition System with real-time hand landmark tracking, AI character recognition, math equation solver, and speech synthesis.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

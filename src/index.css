@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinReverseSlow {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(1deg);
+    }
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes strokeDash {
+    0% {
+      stroke-dashoffset: 200;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spinSlow 18s linear infinite;
+  }
+
+  .animate-spin-reverse-slow {
+    animation: spinReverseSlow 24s linear infinite;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+
+  .animate-stroke-dash {
+    stroke-dasharray: 200;
+    animation: strokeDash 3s ease-in-out infinite alternate;
+  }
+
+  /* Universal Hover Card Elevation & Glow Class */
+  .hover-card-glow {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-card-glow:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 16px 36px -12px rgba(56, 189, 248, 0.25), 0 0 15px 0 rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.6) !important;
+  }
+
+  /* Interactive Button Sheen Effect */
+  .hover-btn-shine {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease-out;
+  }
+  .hover-btn-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent
+    );
+    transform: rotate(25deg);
+    transition: transform 0.6s ease-in-out;
+    pointer-events: none;
+  }
+  .hover-btn-shine:hover::after {
+    transform: translateX(350%) rotate(25deg);
+  }
+  .hover-btn-shine:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgba(56, 189, 248, 0.4);
+  }
+  .hover-btn-shine:active {
+    transform: translateY(0px) scale(0.98);
+  }
+}
+
+/* Global Smooth Scrolling Configuration */
+html, body {
+  scroll-behavior: smooth !important;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 80px;
+}
+
+/* Smooth custom sci-fi scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060911;
+  border-left: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 9999px;
+  border: 2px solid #060911;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8 0%, #818cf8 100%);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #060911;
+}
+
+*:hover {
+  scrollbar-color: #38bdf8 #060911;
+}
+
+
